@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+    @apply py-8
+}
+
+section{
+    @apply container
+}
+
+.card-reflect{
+    /* -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, rgba(255, 255, 255, 0.2)); */
+}
