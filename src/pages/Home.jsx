@@ -16,11 +16,11 @@ export function HeroSection() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
     return <>
-        <div className="min-h-[calc(100vh-80px) p-8 flex flex-col-reverse lg:flex-row gap-5 lg:gap-0">
+        <div className="min-h-[calc(100vh-80px) p-4 lg:p-8 flex flex-col-reverse lg:flex-row gap-3 lg:gap-0">
             <div className="flex flex-col lg:w-1/3">
                 {/* left top */}
                 <div className="bg-white w-full h-2/5 rounded-l-[50px] rounded-t-[50px]">
-                    <div className="bg-lightprimary h-full w-full rounded-[50px] lg:rounded-tr-none rounded-tr-[50px] relative p-8 pb-24 flex flex-col gap-4">
+                    <div className="bg-lightprimary h-full w-full rounded-[50px] lg:rounded-tr-none rounded-tr-[50px] relative p-5 lg:p-8 pb-24 flex flex-col gap-4">
                         <h1 className='text-5xl font-bold text-primary'>NeuLand</h1>
                         <p>We turn real estate opportunities into lasting investments through expertise, transparency, and market insight.</p>
                         <div className="absolute -bottom-[0.5px] left-[55px] -right-[5.5px] h-24 bg-white rounded-t-3xl" style={{
@@ -33,7 +33,7 @@ export function HeroSection() {
                 </div>
                 {/* left bottom */}
                 <div className="bg-white p-8 lg:pe-7 pe-0 ps-0 pb-0 w-full h-3/5">
-                    <div className="bg-lightprimary h-full w-full rounded-[50px] rounded-tr-none relative flex flex-col gap-2 items-start p-8">
+                    <div className="bg-lightprimary h-full w-full rounded-[50px] rounded-tr-none relative flex flex-col gap-2 items-start p-5 lg:p-8">
                         <h1 className='text-2xl font-bold text-primary'>Over 50M+ in Property Sales</h1>
                         <p>Building connections between people and places.
                             We aim to make property buying and selling simpler, smarter, and more rewarding — one home at a time.</p>
@@ -46,8 +46,8 @@ polygon(0% 100%, 100% 100%, 100% 76.7%, 100% 69.45%, 99.95% 64.56%, 99.9% 59.67%
                 </div>
             </div>
             {/* right section */}
-            <div className="bg-lightprimary lg:w-2/3 rounded-[50px] lg:rounded-tl-none relative p-5 space-y-5">
-                <div className="h-full rounded-[30px] overflow-hidden">
+            <div className="bg-lightprimary lg:w-2/3 rounded-[50px] lg:rounded-tl-none relative p-2 lg:p-5 space-y-5">
+                <div className="h-full rounded-[42px] lg:rounded-[30px] overflow-hidden">
                     <img src={heroimage} className='h-full w-full object-cover' />
                 </div>
             </div>
