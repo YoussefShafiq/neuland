@@ -7,6 +7,8 @@ import { Helmet } from 'react-helmet';
 import { useRef } from 'react';
 import { PiLineVertical } from 'react-icons/pi';
 import ShadowImage from '../components/ShadowImage';
+import { Link } from 'react-router-dom';
+import { CgArrowTopRight } from 'react-icons/cg';
 
 export function HeroSection() {
     const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
@@ -575,15 +577,180 @@ export function ClientsFeedbacks() {
     );
 }
 
+export function Blogs() {
+    const sliderRef = useRef(null);
+
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        responsive: [
+            {
+                breakpoint: 1024, // screens < 1024px
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 768, // screens < 768px
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 640, // screens < 640px
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
+    };
+
+    const goToNext = () => {
+        if (sliderRef.current) {
+            sliderRef.current.slickNext();
+        }
+    };
+
+    const goToPrev = () => {
+        if (sliderRef.current) {
+            sliderRef.current.slickPrev();
+        }
+    };
+
+    const data = [
+        {
+            'img': 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            'title': 'How to choose the perfect property',
+            'slug': 'how-to-choose-the-perfect-property',
+            'short_desc': 'Choosing the right property can be a daunting task. Here are some tips to help you make the best decision.',
+            'category': 'blog',
+            'id': 1,
+        },
+        {
+            'img': 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            'title': 'How to choose the perfect property',
+            'slug': 'how-to-choose-the-perfect-property',
+            'short_desc': 'Choosing the right property can be a daunting task. Here are some tips to help you make the best decision.',
+            'category': 'blog',
+            'id': 2,
+        },
+        {
+            'img': 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            'title': 'How to choose the perfect property',
+            'slug': 'how-to-choose-the-perfect-property',
+            'short_desc': 'Choosing the right property can be a daunting task. Here are some tips to help you make the best decision.',
+            'category': 'blog',
+            'id': 3,
+        },
+        {
+            'img': 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            'title': 'How to choose the perfect property',
+            'slug': 'how-to-choose-the-perfect-property',
+            'short_desc': 'Choosing the right property can be a daunting task. Here are some tips to help you make the best decision.',
+            'category': 'blog',
+            'id': 4,
+        },
+        {
+            'img': 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            'title': 'How to choose the perfect property',
+            'slug': 'how-to-choose-the-perfect-property',
+            'short_desc': 'Choosing the right property can be a daunting task. Here are some tips to help you make the best decision.',
+            'category': 'blog',
+            'id': 5,
+        },
+        {
+            'img': 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            'title': 'How to choose the perfect property',
+            'slug': 'how-to-choose-the-perfect-property',
+            'short_desc': 'Choosing the right property can be a daunting task. Here are some tips to help you make the best decision.',
+            'category': 'blog',
+            'id': 6,
+        },
+        {
+            'img': 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            'title': 'How to choose the perfect property',
+            'slug': 'how-to-choose-the-perfect-property',
+            'short_desc': 'Choosing the right property can be a daunting task. Here are some tips to help you make the best decision.',
+            'category': 'blog',
+            'id': 7,
+        },
+
+    ]
+
+
+    return (
+        <section className='overflow-hidden'>
+            <Heading title="Our Latest Blogs" link={'All Blogs'} />
+            <div className="flex flex-col gap-3">
+                <div className="flex justify-end items-center gap-2">
+                    {/* Previous Arrow */}
+                    <button
+                        onClick={goToPrev}
+                        className="p-2 rounded-full bg-transparent border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-colors"
+                        aria-label="Previous slide"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+
+                    {/* Next Arrow */}
+                    <button
+                        onClick={goToNext}
+                        className="p-2 rounded-full bg-secondary border-2 border-secondary hover:text-secondary hover:bg-transparent text-white transition-colors"
+                        aria-label="Next slide"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div className="">
+                    <Slider ref={sliderRef} {...settings}>
+                        {data.map((blog, index) => (
+                            <div key={index} className="p-2">
+                                <div className="flex flex-col rounded-3xl group">
+                                    <div className="rounded-t-3xl overflow-hidden h-52">
+                                        <img src={blog.img} alt={blog.title} className='w-full h-full object-cover group-hover:scale-110 duration-500' />
+                                    </div>
+                                    <div className="bg-primary rounded-b-3xl p-3 px-5 pb-5 flex flex-col gap-1 flex-1 text-white">
+                                        <h3 className='text-xl font-bold'>{blog.title}</h3>
+                                        <p className="text-xs text-white/80 flex-1">{blog.short_desc}</p>
+                                        <Link to={`blog/${blog.slug}`} className='flex items-center bg-white text-secondary group/btn opacity-50 group-hover:opacity-100 duration-500 w-fit rounded-full px-2 py-1 mt-3 gap-2'>
+                                            <p className='text-sm capitalize'>read more</p>
+                                            <div className="aspect-square rounded-full rotate-45 group-hover:rotate-12 group-hover:scale-110 duration-500 border p-1 text-sm bg-primary text-white">
+                                                <CgArrowTopRight />
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </Slider>
+                </div>
+            </div>
+        </section>
+    );
+}
+
 export default function Home() {
     return <>
         <Helmet
             title='NeuLand'
-
         />
         <HeroSection />
         <AboutUs />
         <BestProjects />
         <ClientsFeedbacks />
+        <Blogs />
     </>
 }
