@@ -121,7 +121,7 @@ export function WhyChooseUs() {
                 <div className="flex flex-col gap-5">
                     <ShadowImage className={'h-full'} src={'https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=1167&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} />
                 </div>
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-5">
                     {data.map((item, index) => (<>
                         <div className="bg-primary/10 text-primary p-5 rounded-3xl">
                             <div className="flex items-center justify-center w-12 h-12 bg-primary/20 rounded-lg mb-3 text-3xl">
