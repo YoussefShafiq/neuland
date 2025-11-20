@@ -584,7 +584,7 @@ export function Blogs() {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
