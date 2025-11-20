@@ -249,36 +249,65 @@ export function BestProjects() {
                     </button>
                 </div>
 
-                <Slider ref={sliderRef} {...settings}>
-                    {dataChunks.map((chunk, chunkIndex) => (
-                        <div key={chunkIndex} className="w-full">
-                            <div className="flex flex-col lg:flex-row gap-5">
-                                {chunk.map((property, index) => (
-                                    <div key={index} className="w-full lg:w-1/3 group lg:hover:w-3/5 transition-all duration-500 relative">
-                                        <div className="h-96 overflow-hidden rounded-3xl mb-4 relative cursor-pointer">
-                                            <img src={property.img} alt={property.title} className='w-full h-full object-cover group-hover:scale-110 duration-500' />
-                                            <div className="absolute inset-0 flex flex-col justify-between bg-gradient-to-t from-black/70 to-transparent to-50% text-white p-4 rounded-2xl">
-                                                <dix className="flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                                    <p className="bg-primary/50 backdrop-blur-sm px-3 py-2 rounded-full capitalize text-xs">{property.category}</p>
-                                                    <p className="bg-primary/50 backdrop-blur-sm px-3 py-2 rounded-full capitalize text-xs"> <span className='font-semibold '>from</span> {property.price}</p>
-                                                    <p className="bg-primary/50 backdrop-blur-sm px-3 py-2 rounded-full capitalize text-xs"> {property.location}</p>
-                                                </dix>
-                                                <div className="flex flex-col gap-4">
-                                                    <h3 className='text-2xl font-semibold' >{property.title}</h3>
-                                                    <div className="flex">
-                                                        {property.features.map((feature, featureIndex) => (
-                                                            <div key={featureIndex} className="text-sm flex items-center">{feature} {featureIndex != property.features.length - 1 ? <PiLineVertical /> : ''}</div>
-                                                        ))}
+                <div className="hidden lg:block">
+                    <Slider ref={sliderRef} {...settings}>
+                        {dataChunks.map((chunk, chunkIndex) => (
+                            <div key={chunkIndex} className="w-full p-2">
+                                <div className="flex flex-col lg:flex-row gap-5">
+                                    {chunk.map((property, index) => (
+                                        <div key={index} className="w-full lg:w-1/3 group lg:hover:w-3/5 transition-all duration-500 relative">
+                                            <div className="h-96 overflow-hidden rounded-3xl mb-4 relative cursor-pointer">
+                                                <img src={property.img} alt={property.title} className='w-full h-full object-cover group-hover:scale-110 duration-500' />
+                                                <div className="absolute inset-0 flex flex-col justify-between bg-gradient-to-t from-black/70 to-transparent to-50% text-white p-4 rounded-2xl">
+                                                    <dix className="flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                                        <p className="bg-primary/50 backdrop-blur-sm px-3 py-2 rounded-full capitalize text-xs">{property.category}</p>
+                                                        <p className="bg-primary/50 backdrop-blur-sm px-3 py-2 rounded-full capitalize text-xs"> <span className='font-semibold '>from</span> {property.price}</p>
+                                                        <p className="bg-primary/50 backdrop-blur-sm px-3 py-2 rounded-full capitalize text-xs"> {property.location}</p>
+                                                    </dix>
+                                                    <div className="flex flex-col gap-4">
+                                                        <h3 className='text-2xl font-semibold' >{property.title}</h3>
+                                                        <div className="flex">
+                                                            {property.features.map((feature, featureIndex) => (
+                                                                <div key={featureIndex} className="text-sm flex items-center">{feature} {featureIndex != property.features.length - 1 ? <PiLineVertical /> : ''}</div>
+                                                            ))}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </Slider>
+                        ))}
+                    </Slider>
+                </div>
+
+                <div className="lg:hidden overflow-hidden">
+                    <Slider ref={sliderRef} {...settings}>
+                        {data.map((property, index) => (
+                            <div key={index} className="w-full lg:w-1/3 group lg:hover:w-3/5 transition-all duration-500 relative p-2">
+                                <div className="h-96 overflow-hidden rounded-3xl mb-4 relative cursor-pointer">
+                                    <img src={property.img} alt={property.title} className='w-full h-full object-cover group-hover:scale-110 duration-500' />
+                                    <div className="absolute inset-0 flex flex-col justify-between bg-gradient-to-t from-black/70 to-transparent to-50% text-white p-4 rounded-2xl">
+                                        <dix className="flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                            <p className="bg-primary/50 backdrop-blur-sm px-3 py-2 rounded-full capitalize text-xs">{property.category}</p>
+                                            <p className="bg-primary/50 backdrop-blur-sm px-3 py-2 rounded-full capitalize text-xs"> <span className='font-semibold '>from</span> {property.price}</p>
+                                            <p className="bg-primary/50 backdrop-blur-sm px-3 py-2 rounded-full capitalize text-xs"> {property.location}</p>
+                                        </dix>
+                                        <div className="flex flex-col gap-4">
+                                            <h3 className='text-2xl font-semibold' >{property.title}</h3>
+                                            <div className="flex">
+                                                {property.features.map((feature, featureIndex) => (
+                                                    <div key={featureIndex} className="text-sm flex items-center">{feature} {featureIndex != property.features.length - 1 ? <PiLineVertical /> : ''}</div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </Slider>
+                </div>
             </div>
         </section>
     );
@@ -391,115 +420,156 @@ export function ClientsFeedbacks() {
                     </button>
                 </div>
 
-                <Slider ref={sliderRef} {...settings}>
-                    {dataChunks.map((chunk, chunkIndex) => (
-                        <div key={chunkIndex} className="w-full">
-                            <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
-                                {chunk.map((property, index) => (
-                                    <div
-                                        key={index}
-                                        className={`
+                <div className="hidden lg:block">
+                    <Slider ref={sliderRef} {...settings}>
+                        {dataChunks.map((chunk, chunkIndex) => (
+                            <div key={chunkIndex} className="w-full p-2">
+                                <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+                                    {chunk.map((property, index) => (
+                                        <div
+                                            key={index}
+                                            className={`
                             w-full lg:w-1/3 lg:hover:w-2/3 duration-500 lg:h-[400px] group relative flex 
                             ${index === 0 ? 'lg:items-start' : index === 1 ? 'lg:items-center' : 'lg:items-end'}
                         `}
-                                    >
-                                        {/* Main card container */}
-                                        <div className="
-                            lg:h-1/2 lg:group-hover:h-full 
-                            flex-1
-                            group-hover:flex-2
-                            duration-500 ease-in-out 
-                            overflow-hidden 
-                            rounded-3xl 
-                            relative 
-                            cursor-pointer 
-                            flex flex-col lg:flex-row
-                            border-2 border-gray-200
-                            bg-primary p-2
+                                        >
+                                            {/* Main card container */}
+                                            <div className="lg:h-1/2 lg:group-hover:h-full flex-1 group-hover:flex-2 duration-500 ease-in-out overflow-hidden rounded-3xl relative cursor-pointer flex flex-col lg:flex-row border-2 border-gray-200 bg-primary p-2
                         ">
-                                            {/* Image section - full width by default, half on hover */}
-                                            <div className="
-                                w-full lg:group-hover:w-1/2
-                                h-full
-                                duration-500
-                                overflow-hidden
-                                relative
-                                rounded-2xl
+                                                {/* Image section - full width by default, half on hover */}
+                                                <div className=" w-full lg:group-hover:w-1/2 h-full duration-500 overflow-hidden relative rounded-2xl
                             ">
-                                                <img
-                                                    src={property.img}
-                                                    alt={property.name}
-                                                    className='w-full h-full object-cover duration-500 group-hover:scale-105'
-                                                />
-                                                {/* Title overlay - visible in non-hovered state */}
-                                                <div className="
-                                hidden lg:block absolute bottom-0 left-0 right-0
-                                p-4
-                                text-white
-                                bg-gradient-to-t from-black/80 via-black/40 to-transparent
-                                group-hover:opacity-0
-                                duration-300
+                                                    <img
+                                                        src={property.img}
+                                                        alt={property.name}
+                                                        className='w-full h-full object-cover duration-500 group-hover:scale-105'
+                                                    />
+                                                    {/* Title overlay - visible in non-hovered state */}
+                                                    <div className=" hidden lg:block absolute bottom-0 left-0 right-0 p-4 text-white bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:opacity-0 duration-300
                             ">
-                                                    <h3 className="text-lg font-semibold capitalize">{property.name}</h3>
-                                                    {property.job && (
-                                                        <p className="text-sm opacity-90">{property.job}</p>
-                                                    )}
-                                                </div>                                            </div>
+                                                        <h3 className="text-lg font-semibold capitalize">{property.name}</h3>
+                                                        {property.job && (
+                                                            <p className="text-sm opacity-90">{property.job}</p>
+                                                        )}
+                                                    </div>                                            </div>
 
-                                            {/* Content section - hidden by default, visible on hover */}
-                                            <div className="
-                                lg:absolute inset-0 
-                                flex
-                                lg:opacity-0 lg:group-hover:opacity-100
-                                group-hover:duration-500
-                                pointer-events-none
-                                group-hover:delay-500
+                                                {/* Content section - hidden by default, visible on hover */}
+                                                <div className=" lg:absolute inset-0  flex lg:opacity-0 lg:group-hover:opacity-100 group-hover:duration-500 pointer-events-none group-hover:delay-500
                             ">
-                                                {/* Spacer for image half */}
-                                                <div className="hidden lg:block lg:w-1/2"></div>
+                                                    {/* Spacer for image half */}
+                                                    <div className="hidden lg:block lg:w-1/2"></div>
 
-                                                {/* Content half */}
-                                                <div className="
-                                    lg:w-1/2 h-full
-                                    flex flex-col justify-center
-                                    p-6
-                                    pointer-events-auto
+                                                    {/* Content half */}
+                                                    <div className=" lg:w-1/2 h-full flex flex-col justify-center p-6 pointer-events-auto
                                 ">
-                                                    <h3 className="text-xl font-bold text-white mb-3 transform lg:translate-x-4 lg:group-hover:translate-x-0 duration-300 capitalize">
-                                                        {property.name}
-                                                    </h3>
+                                                        <h3 className="text-xl font-bold text-white mb-3 transform lg:translate-x-4 lg:group-hover:translate-x-0 duration-300 capitalize">
+                                                            {property.name}
+                                                        </h3>
 
-                                                    {property.feedback && (
-                                                        <p className="text-white text-xl italic mb-4 transform lg:translate-x-4 lg:group-hover:translate-x-0 duration-300 delay-100">
-                                                            "{property.feedback}"
-                                                        </p>
-                                                    )}
+                                                        {property.feedback && (
+                                                            <p className="text-white text-xl italic mb-4 transform lg:translate-x-4 lg:group-hover:translate-x-0 duration-300 delay-100">
+                                                                "{property.feedback}"
+                                                            </p>
+                                                        )}
 
-                                                    {property.job && (
-                                                        <div className="mb-3 transform lg:translate-x-4 lg:group-hover:translate-x-0 duration-300 delay-150">
-                                                            <p className="text- text-white/50">{property.job}</p>
-                                                        </div>
-                                                    )}
+                                                        {property.job && (
+                                                            <div className="mb-3 transform lg:translate-x-4 lg:group-hover:translate-x-0 duration-300 delay-150">
+                                                                <p className="text- text-white/50">{property.job}</p>
+                                                            </div>
+                                                        )}
 
-                                                    {property.location && (
-                                                        <div className="flex items-center text-gray-500 transform translate-x-4 group-hover:translate-x-0 duration-300 delay-200">
-                                                            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                                                            </svg>
-                                                            <span className="text-sm">{property.location}</span>
-                                                        </div>
-                                                    )}
+                                                        {property.location && (
+                                                            <div className="flex items-center text-gray-500 transform translate-x-4 group-hover:translate-x-0 duration-300 delay-200">
+                                                                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                                                                </svg>
+                                                                <span className="text-sm">{property.location}</span>
+                                                            </div>
+                                                        )}
+                                                    </div>
                                                 </div>
+
+
                                             </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </Slider>
+                </div>
+                <div className="lg:hidden overflow-hidden">
+                    <Slider ref={sliderRef} {...settings}>
+                        {data.map((property, index) => (
+                            <div
+                                key={index}
+                                className={`
+                            w-full lg:w-1/3 lg:hover:w-2/3 duration-500 group relative flex p-2
+                            ${index === 0 ? 'lg:items-start' : index === 1 ? 'lg:items-center' : 'lg:items-end'}
+                        `}
+                            >
+                                {/* Main card container */}
+                                <div className="lg:h-1/2 lg:group-hover:h-full flex-1 group-hover:flex-2 duration-500 ease-in-out overflow-hidden rounded-3xl relative cursor-pointer flex flex-col lg:flex-row border-2 border-gray-200 bg-primary p-2
+                        ">
+                                    {/* Image section - full width by default, half on hover */}
+                                    <div className=" w-full lg:group-hover:w-1/2 h-full duration-500 overflow-hidden relative rounded-2xl
+                            ">
+                                        <img
+                                            src={property.img}
+                                            alt={property.name}
+                                            className='w-full h-full object-cover duration-500 group-hover:scale-105'
+                                        />
+                                        {/* Title overlay - visible in non-hovered state */}
+                                        <div className=" hidden lg:block absolute bottom-0 left-0 right-0 p-4 text-white bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:opacity-0 duration-300
+                            ">
+                                            <h3 className="text-lg font-semibold capitalize">{property.name}</h3>
+                                            {property.job && (
+                                                <p className="text-sm opacity-90">{property.job}</p>
+                                            )}
+                                        </div>                                            </div>
 
+                                    {/* Content section - hidden by default, visible on hover */}
+                                    <div className=" lg:absolute inset-0  flex lg:opacity-0 lg:group-hover:opacity-100 group-hover:duration-500 pointer-events-none group-hover:delay-500
+                            ">
+                                        {/* Spacer for image half */}
+                                        <div className="hidden lg:block lg:w-1/2"></div>
 
+                                        {/* Content half */}
+                                        <div className=" lg:w-1/2 h-full flex flex-col justify-center p-6 pointer-events-auto
+                                ">
+                                            <h3 className="text-xl font-bold text-white mb-3 transform lg:translate-x-4 lg:group-hover:translate-x-0 duration-300 capitalize">
+                                                {property.name}
+                                            </h3>
+
+                                            {property.feedback && (
+                                                <p className="text-white text-xl italic mb-4 transform lg:translate-x-4 lg:group-hover:translate-x-0 duration-300 delay-100">
+                                                    "{property.feedback}"
+                                                </p>
+                                            )}
+
+                                            {property.job && (
+                                                <div className="mb-3 transform lg:translate-x-4 lg:group-hover:translate-x-0 duration-300 delay-150">
+                                                    <p className="text- text-white/50">{property.job}</p>
+                                                </div>
+                                            )}
+
+                                            {property.location && (
+                                                <div className="flex items-center text-gray-500 transform translate-x-4 group-hover:translate-x-0 duration-300 delay-200">
+                                                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                                                    </svg>
+                                                    <span className="text-sm">{property.location}</span>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
-                                ))}
+
+
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </Slider>
+                        ))}
+                    </Slider>
+                </div>
             </div>
         </section>
     );
