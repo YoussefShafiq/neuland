@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import heroimage from '../assets/images/frames-for-your-heart-2d4lAQAlbDA-unsplash.jpg'
 import Heading from '../components/Heading';
-import { Quote } from 'lucide-react';
+import { Info, Quote, Shield } from 'lucide-react';
 import Slider from 'react-slick';
 import { Helmet } from 'react-helmet';
 import { useRef } from 'react';
@@ -9,6 +9,10 @@ import { PiLineVertical } from 'react-icons/pi';
 import ShadowImage from '../components/ShadowImage';
 import { Link } from 'react-router-dom';
 import { CgArrowTopRight } from 'react-icons/cg';
+import { CiViewList } from 'react-icons/ci';
+import { BsHouseCheck } from 'react-icons/bs';
+import { GiCheckMark } from 'react-icons/gi';
+import { FaMoneyBillTransfer } from 'react-icons/fa6';
 
 export function HeroSection() {
     const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
@@ -84,6 +88,52 @@ export function AboutUs() {
                 </div>
             </div>
         </div>
+    </>
+}
+
+export function WhyChooseUs() {
+    const data = [
+        {
+            'icon': <GiCheckMark className='text-2xl' />,
+            'title': 'Expertise You Can Trust',
+            'description': 'Our team of seasoned professionals brings unparalleled market knowledge and insights to help you make informed decisions.',
+        },
+        {
+            'icon': <CiViewList strokeWidth={0.5} />,
+            'title': 'Personalized Service',
+            'description': 'We prioritize your unique needs and preferences, ensuring a tailored experience that exceeds expectations.',
+        },
+        {
+            'icon': <BsHouseCheck />,
+            'title': 'Comprehensive Listings',
+            'description': 'Access a diverse portfolio of properties, from residential to commercial, catering to various budgets and lifestyles.',
+        },
+        {
+            'icon': <FaMoneyBillTransfer />,
+            'title': 'Transparent Transactions',
+            'description': 'We believe in honesty and integrity, providing clear communication and guidance throughout the buying or selling process.',
+        }
+    ]
+    return <>
+        <section>
+            <Heading title={'Why Choose Us?'} />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="flex flex-col gap-5">
+                    <ShadowImage className={'h-full'} src={'https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=1167&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} />
+                </div>
+                <div className="grid grid-cols-2 gap-5">
+                    {data.map((item, index) => (<>
+                        <div className="bg-primary/10 text-primary p-5 rounded-3xl">
+                            <div className="flex items-center justify-center w-12 h-12 bg-primary/20 rounded-lg mb-3 text-3xl">
+                                {item.icon}
+                            </div>
+                            <h3 className='text-xl font-bold mt-2'>{item.title}</h3>
+                            <p className='text-sm'>{item.description}</p>
+                        </div>
+                    </>))}
+                </div>
+            </div>
+        </section>
     </>
 }
 
@@ -251,7 +301,7 @@ export function BestProjects() {
                     </button>
                 </div>
 
-                <div className="hidden lg:block">
+                {window.innerWidth > 1024 ?
                     <Slider ref={sliderRef} {...settings}>
                         {dataChunks.map((chunk, chunkIndex) => (
                             <div key={chunkIndex} className="w-full p-2">
@@ -282,9 +332,7 @@ export function BestProjects() {
                             </div>
                         ))}
                     </Slider>
-                </div>
-
-                <div className="lg:hidden overflow-hidden">
+                    :
                     <Slider ref={sliderRef} {...settings}>
                         {data.map((property, index) => (
                             <div key={index} className="w-full lg:w-1/3 group lg:hover:w-3/5 transition-all duration-500 relative p-2">
@@ -309,7 +357,8 @@ export function BestProjects() {
                             </div>
                         ))}
                     </Slider>
-                </div>
+                }
+
             </div>
         </section>
     );
@@ -324,6 +373,8 @@ export function ClientsFeedbacks() {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
     };
 
     const goToNext = () => {
@@ -422,85 +473,82 @@ export function ClientsFeedbacks() {
                     </button>
                 </div>
 
-                <div className="hidden lg:block">
-                    <Slider ref={sliderRef} {...settings}>
-                        {dataChunks.map((chunk, chunkIndex) => (
-                            <div key={chunkIndex} className="w-full p-2">
-                                <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
-                                    {chunk.map((property, index) => (
-                                        <div
-                                            key={index}
-                                            className={`
+                {window.innerWidth > 1024 ? <Slider ref={sliderRef} {...settings}>
+                    {dataChunks.map((chunk, chunkIndex) => (
+                        <div key={chunkIndex} className="w-full p-2">
+                            <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+                                {chunk.map((property, index) => (
+                                    <div
+                                        key={index}
+                                        className={`
                             w-full lg:w-1/3 lg:hover:w-2/3 duration-500 lg:h-[400px] group relative flex 
                             ${index === 0 ? 'lg:items-start' : index === 1 ? 'lg:items-center' : 'lg:items-end'}
                         `}
-                                        >
-                                            {/* Main card container */}
-                                            <div className="lg:h-1/2 lg:group-hover:h-full flex-1 group-hover:flex-2 duration-500 ease-in-out overflow-hidden rounded-3xl relative cursor-pointer flex flex-col lg:flex-row border-2 border-gray-200 bg-primary p-2
+                                    >
+                                        {/* Main card container */}
+                                        <div className="lg:h-1/2 lg:group-hover:h-full flex-1 group-hover:flex-2 duration-500 ease-in-out overflow-hidden rounded-3xl relative cursor-pointer flex flex-col lg:flex-row border-2 border-gray-200 bg-primary p-2
                         ">
-                                                {/* Image section - full width by default, half on hover */}
-                                                <div className=" w-full lg:group-hover:w-1/2 h-full duration-500 overflow-hidden relative rounded-2xl
+                                            {/* Image section - full width by default, half on hover */}
+                                            <div className=" w-full lg:group-hover:w-1/2 h-full duration-500 overflow-hidden relative rounded-2xl
                             ">
-                                                    <img
-                                                        src={property.img}
-                                                        alt={property.name}
-                                                        className='w-full h-full object-cover duration-500 group-hover:scale-105'
-                                                    />
-                                                    {/* Title overlay - visible in non-hovered state */}
-                                                    <div className=" hidden lg:block absolute bottom-0 left-0 right-0 p-4 text-white bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:opacity-0 duration-300
+                                                <img
+                                                    src={property.img}
+                                                    alt={property.name}
+                                                    className='w-full h-full object-cover duration-500 group-hover:scale-105'
+                                                />
+                                                {/* Title overlay - visible in non-hovered state */}
+                                                <div className=" hidden lg:block absolute bottom-0 left-0 right-0 p-4 text-white bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:opacity-0 duration-300
                             ">
-                                                        <h3 className="text-lg font-semibold capitalize">{property.name}</h3>
-                                                        {property.job && (
-                                                            <p className="text-sm opacity-90">{property.job}</p>
-                                                        )}
-                                                    </div>                                            </div>
+                                                    <h3 className="text-lg font-semibold capitalize">{property.name}</h3>
+                                                    {property.job && (
+                                                        <p className="text-sm opacity-90">{property.job}</p>
+                                                    )}
+                                                </div>                                            </div>
 
-                                                {/* Content section - hidden by default, visible on hover */}
-                                                <div className=" lg:absolute inset-0  flex lg:opacity-0 lg:group-hover:opacity-100 group-hover:duration-500 pointer-events-none group-hover:delay-500
+                                            {/* Content section - hidden by default, visible on hover */}
+                                            <div className=" lg:absolute inset-0  flex lg:opacity-0 lg:group-hover:opacity-100 group-hover:duration-500 pointer-events-none group-hover:delay-500
                             ">
-                                                    {/* Spacer for image half */}
-                                                    <div className="hidden lg:block lg:w-1/2"></div>
+                                                {/* Spacer for image half */}
+                                                <div className="hidden lg:block lg:w-1/2"></div>
 
-                                                    {/* Content half */}
-                                                    <div className=" lg:w-1/2 h-full flex flex-col justify-center p-6 pointer-events-auto
+                                                {/* Content half */}
+                                                <div className=" lg:w-1/2 h-full flex flex-col justify-center p-6 pointer-events-auto
                                 ">
-                                                        <h3 className="text-xl font-bold text-white mb-3 transform lg:translate-x-4 lg:group-hover:translate-x-0 duration-300 capitalize">
-                                                            {property.name}
-                                                        </h3>
+                                                    <h3 className="text-xl font-bold text-white mb-3 transform lg:translate-x-4 lg:group-hover:translate-x-0 duration-300 capitalize">
+                                                        {property.name}
+                                                    </h3>
 
-                                                        {property.feedback && (
-                                                            <p className="text-white text-xl italic mb-4 transform lg:translate-x-4 lg:group-hover:translate-x-0 duration-300 delay-100">
-                                                                "{property.feedback}"
-                                                            </p>
-                                                        )}
+                                                    {property.feedback && (
+                                                        <p className="text-white text-xl italic mb-4 transform lg:translate-x-4 lg:group-hover:translate-x-0 duration-300 delay-100">
+                                                            "{property.feedback}"
+                                                        </p>
+                                                    )}
 
-                                                        {property.job && (
-                                                            <div className="mb-3 transform lg:translate-x-4 lg:group-hover:translate-x-0 duration-300 delay-150">
-                                                                <p className="text- text-white/50">{property.job}</p>
-                                                            </div>
-                                                        )}
+                                                    {property.job && (
+                                                        <div className="mb-3 transform lg:translate-x-4 lg:group-hover:translate-x-0 duration-300 delay-150">
+                                                            <p className="text- text-white/50">{property.job}</p>
+                                                        </div>
+                                                    )}
 
-                                                        {property.location && (
-                                                            <div className="flex items-center text-gray-500 transform translate-x-4 group-hover:translate-x-0 duration-300 delay-200">
-                                                                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                                                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                                                                </svg>
-                                                                <span className="text-sm">{property.location}</span>
-                                                            </div>
-                                                        )}
-                                                    </div>
+                                                    {property.location && (
+                                                        <div className="flex items-center text-gray-500 transform translate-x-4 group-hover:translate-x-0 duration-300 delay-200">
+                                                            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                                                            </svg>
+                                                            <span className="text-sm">{property.location}</span>
+                                                        </div>
+                                                    )}
                                                 </div>
-
-
                                             </div>
+
+
                                         </div>
-                                    ))}
-                                </div>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </Slider>
-                </div>
-                <div className="lg:hidden overflow-hidden">
+                        </div>
+                    ))}
+                </Slider> :
                     <Slider ref={sliderRef} {...settings}>
                         {data.map((property, index) => (
                             <div
@@ -570,8 +618,7 @@ export function ClientsFeedbacks() {
                                 </div>
                             </div>
                         ))}
-                    </Slider>
-                </div>
+                    </Slider>}
             </div>
         </section>
     );
@@ -722,13 +769,14 @@ export function Blogs() {
                                     <div className="rounded-t-3xl overflow-hidden h-52">
                                         <img src={blog.img} alt={blog.title} className='w-full h-full object-cover group-hover:scale-110 duration-500' />
                                     </div>
-                                    <div className="bg-primary rounded-b-3xl p-3 px-5 pb-5 flex flex-col gap-1 flex-1 text-white">
+                                    <div className="bg-primary/0 rounded-b-3xl p-3 px-5 pb-5 flex flex-col gap-1 flex-1 text-primary shadow-md shadow-primary/20 group-hover:shadow-primary/50 duration-500">
+                                        <span className='border border-secondary w-fit px-3 py-1 rounded-full text-xs' >{blog.category}</span>
                                         <h3 className='text-xl font-bold'>{blog.title}</h3>
-                                        <p className="text-xs text-white/80 flex-1">{blog.short_desc}</p>
-                                        <Link to={`blog/${blog.slug}`} className='flex items-center bg-white text-secondary group/btn opacity-50 group-hover:opacity-100 duration-500 w-fit rounded-full px-2 py-1 mt-3 gap-2'>
+                                        <p className="text-xs text-primary/80 flex-1">{blog.short_desc}</p>
+                                        <Link to={`blog/${blog.slug}`} className='flex items-center bg-secondary text-white group/btn opacity-50 group-hover:opacity-100 duration-500 w-fit rounded-full px-2 py-1 pe-[5px] mt-3 gap-2'>
                                             <p className='text-sm capitalize'>read more</p>
-                                            <div className="aspect-square rounded-full rotate-45 group-hover:rotate-12 group-hover:scale-110 duration-500 border p-1 text-sm bg-primary text-white">
-                                                <CgArrowTopRight />
+                                            <div className="aspect-square rounded-full rotate-45 group-hover:rotate-12 group-hover:scale-110 duration-500 border p-1 text-base bg-white text-secondary">
+                                                <CgArrowTopRight className='scale-75 group-hover:scale-110 duration-500' />
                                             </div>
                                         </Link>
                                     </div>
@@ -750,6 +798,7 @@ export default function Home() {
         <HeroSection />
         <AboutUs />
         <BestProjects />
+        <WhyChooseUs />
         <ClientsFeedbacks />
         <Blogs />
     </>
