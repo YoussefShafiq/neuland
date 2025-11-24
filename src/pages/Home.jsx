@@ -22,7 +22,7 @@ export function HeroSection() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
     return <>
-        <div className="min-h-[calc(100vh-80px) p-4 lg:p-8 flex flex-col-reverse lg:flex-row gap-3 lg:gap-0">
+        <div className="min-h-[calc(100vh-80px) p-4 lg:p-8 lg:pt-0 flex flex-col-reverse lg:flex-row gap-3 lg:gap-0 navspacer">
             <div className="flex flex-col lg:w-1/3">
                 {/* left top */}
                 <div className="bg-white w-full h-2/5 rounded-l-[50px] rounded-t-[50px]">
@@ -275,7 +275,7 @@ export function BestProjects() {
 
     return (
         <section>
-            <Heading title="explore our best projects" link="View all projects" />
+            <Heading title="explore our best projects" link="View all projects" to='projects' />
             <div className="flex flex-col gap-3">
                 <div className="flex justify-end items-center gap-2">
                     {/* Previous Arrow */}

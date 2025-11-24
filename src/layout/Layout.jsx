@@ -22,14 +22,14 @@ export default function Layout({ children }) {
             />
             <Navbar />
             <AOSProvider>
-                <div className="pt-20">
+                <div className="">
                     <Outlet>
                         {children}
                     </Outlet>
                 </div>
             </AOSProvider>
             <div className="fixed  lg:top-10 lg:right-14 bottom-5 right-5 z-50">
-                <DarkmodeToggle />
+                {/* <DarkmodeToggle /> */}
             </div>
         </div>
     </>

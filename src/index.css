@@ -6,10 +6,10 @@
     @apply py-8
 }
 
-section{
+section {
     @apply container
 }
 
-.card-reflect{
-    /* -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, rgba(255, 255, 255, 0.2)); */
+.navspacer {
+    @apply !pt-28
 }

@@ -8,6 +8,7 @@ import 'aos/dist/aos.css';
 import Home from './pages/Home'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Projects from './pages/Projects'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     {
       path: '', element: <Layout />, children: [
         { index: true, element: <Home /> },
+        { path: 'projects', element: <Projects /> },
       ]
     }
   ])

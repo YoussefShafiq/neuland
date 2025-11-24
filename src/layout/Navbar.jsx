@@ -15,17 +15,9 @@ export default function Navbar() {
             path: '/',
         },
         {
-            name: 'About',
-            path: '/about',
+            name: 'Projects',
+            path: '/projects',
         },
-        {
-            name: 'Services',
-            path: '/services',
-        },
-        {
-            name: 'Contact',
-            path: '/contact',
-        }
     ];
 
     const socialIcons = [
@@ -82,8 +74,6 @@ export default function Navbar() {
         }
     };
 
-
-
     return (
         <nav className="bg-[#ffffff44] transition-colors dark:bg-[#151a1d37] shadow-sm backdrop-blur-sm lg:top-5 lg:left-10 lg:right-10 top-3 left-5 right-5 z-50 fixed lg:w-[calc(100vw-80px)] w-[calc(100vw-40px)] rounded-3xl">
             <div className="container mx-auto px-4 !py-0 sm:px-6 lg:px-8">
@@ -95,11 +85,10 @@ export default function Navbar() {
                                 <BiCodeAlt />
                             </NavLink>
                         </div>
-
                     </div>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:ml-10 md:flex md:space-x-8 text-secondary transition-colors dark:text-gray-50">
+                    <div className="hidden md:ml-10 md:flex md:space-x-8 text-secondary transition-colors dark:text-gray-50 drop-shadow-xl">
                         {navItems.map((item, index) => (
                             <NavLink
                                 key={index}
@@ -118,7 +107,7 @@ export default function Navbar() {
                                 <a
                                     key={index}
                                     href={social.path}
-                                    className="text-gray-500 transition-colors dark:text-gray-50 hover:text-secondary transition duration-300"
+                                    className="text-gray-500 dark:text-gray-50 hover:text-secondary transition-all duration-300"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -132,7 +121,7 @@ export default function Navbar() {
                     <div className="md:hidden flex items-center">
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 transition-colors dark:text-gray-50 hover:text-secondary focus:outline-none transition duration-300"
+                            className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 transition-all dark:text-gray-50 hover:text-secondary focus:outline-none duration-300"
                             aria-expanded={isMenuOpen}
                         >
                             <span className="sr-only">Open main menu</span>
@@ -184,7 +173,7 @@ export default function Navbar() {
                                         <motion.a
                                             key={index}
                                             href={social.path}
-                                            className="text-secondary transition-colors dark:text-lightsecondary hover:text-secondary transition duration-300 text-lg"
+                                            className="text-secondary transition-all dark:text-lightsecondary hover:text-secondary duration-300 text-lg"
                                             variants={socialIconVariants}
                                             target="_blank"
                                             rel="noopener noreferrer"
