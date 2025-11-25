@@ -308,7 +308,7 @@ export default function Projects() {
                         <div className="flex items-end w-full">
                             <button
                                 onClick={resetFilters}
-                                className="w-full md:w-auto px-8 py-3 bg-secondary hover:from-red-600 hover:to-pink-600 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-red-500/50 hover:scale-105 active:scale-95"
+                                className="w-full md:w-auto px-8 py-3 bg-secondary hover:bg-primary text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:scale-105 active:scale-95"
                             >
                                 Reset All Filters
                             </button>
