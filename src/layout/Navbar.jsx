@@ -75,7 +75,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="bg-[#ffffff44] transition-colors dark:bg-[#151a1d37] shadow-sm backdrop-blur-sm lg:top-5 lg:left-10 lg:right-10 top-3 left-5 right-5 z-50 fixed lg:w-[calc(100vw-80px)] w-[calc(100vw-40px)] rounded-3xl">
+        <nav className="bg-[#ababab2b] transition-colors dark:bg-[#ffffff44] shadow-sm backdrop-blur-sm lg:top-5 lg:left-10 lg:right-10 top-3 left-5 right-5 z-50 fixed lg:w-[calc(100vw-80px)] w-[calc(100vw-40px)] rounded-3xl">
             <div className="container mx-auto px-4 !py-0 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16 lg:h-20 items-center">
                     {/* Logo */}
