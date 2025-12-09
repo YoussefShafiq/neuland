@@ -9,6 +9,7 @@ import Home from './pages/Home'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Projects from './pages/Projects'
+import Notfound from './errors/Notfound'
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
 
   const routers = createBrowserRouter([
     {
-      path: '', element: <Layout />, children: [
+      path: '', element: <Layout />, errorElement: <Notfound />, children: [
         { index: true, element: <Home /> },
         { path: 'projects', element: <Projects /> },
       ]
